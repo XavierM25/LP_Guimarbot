@@ -1,1 +1,95 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+  font-family: 'TRIALSagace';
+  src: url('/fonts/TRIALSagace-Light-BF678f1fab0c903.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TRIALSagace';
+  src: url('/fonts/TRIALSagace-Light—Italic-BF678f1faaeb3ef.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TRIALSagace';
+  src: url('/fonts/TRIALSagace-Regular-BF678f1fab154dd.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TRIALSagace';
+  src: url('/fonts/TRIALSagace-Regular—Italic-BF678f1fab0cd82.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TRIALSagace';
+  src: url('/fonts/TRIALSagace-Medium-BF678f1fab0c8f7.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TRIALSagace';
+  src: url('/fonts/TRIALSagace-Medium—Italic-BF678f1fab05ec8.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TRIALSagace';
+  src: url('/fonts/TRIALSagace-Bold-BF678f1faaf3141.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TRIALSagace';
+  src: url('/fonts/TRIALSagace-Bold—Italic-BF678f1faaeb3ef.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TRIALSagace';
+  src: url('/fonts/TRIALSagace-Black-BF678f1faaf3b71.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TRIALSagace';
+  src: url('/fonts/TRIALSagace-Black—Italic-BF678f1faae1ee7.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-onest {
+  font-family: 'Onest', sans-serif;
+}
+
+.font-sagace {
+  font-family: 'TRIALSagace', sans-serif;
+}

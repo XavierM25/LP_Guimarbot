@@ -1,12 +1,15 @@
 ---
 import '../styles/global.css';
+import Layout from '@/layouts/Layout.astro';
 import Header from '../components/header.astro';
 import Home from '../components/home.astro';
 import Us from '../components/us.astro';
 ---
 
-<main class="min-h-screen bg-gradient-to-b from-[#F1F6F0] to-white px-25 py-6">
-    <Header/>
-    <Home/>
-    <Us/>
-</main>
+<Layout>
+	<main class="min-h-screen bg-gradient-to-b from-[#F1F6F0] to-white px-25 py-6">
+		<Header/>
+		<Home/>
+		<Us/>
+	</main>
+</Layout>
