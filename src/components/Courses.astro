@@ -1,0 +1,51 @@
+---
+import { Filter } from "@mynaui/icons-react";
+import { Search } from "@mynaui/icons-react";
+import CardCourse from '@/components/CardCourse.astro';
+---
+
+<section>
+    <div class="bg-[#8436D8] px-15 py-11 rounded-[45px]">
+        <div class="flex items-center gap-18 mb-7">
+            <h1 class="font-onest text-white text-[56px] font-extrabold w-[30%]">CURSOS 📚</h1>
+            <p class="w-[70%] font-onest text-[#C29BEC] text-[20px] leading-tight">
+                En GuímarBot enseñamos tecnología desde la práctica, con proyectos reales que despiertan la creatividad, el pensamiento lógico y el trabajo en equipo.</p>
+        </div>
+
+        <div class="flex items-center gap-8 font-onest mb-12">
+            <button class="flex items-center gap-2 px-6 py-3 rounded-full bg-[#061B6E] text-[20px] text-white cursor-pointer">
+                <Filter className="w-7 h-7 text-white" strokeWidth={2}/>
+                Filtros
+            </button>
+
+            <div class="w-full flex items-center gap-3 font-onest px-4 py-3 rounded-full bg-[#F8FAF7]">
+                <button class="cursor-pointer">
+                    <Search className="w-7 h-7 text-[#061B6E]" strokeWidth={2}/>
+                </button>
+                <input 
+                type="text"
+                placeholder="Buscar algún curso"
+                class="text-[20px] text-[#061B6E] outline-none placeholder-[#7F8AB2]"
+                />
+            </div>
+        </div>
+
+        <div class="flex justify-between flex-wrap">
+            <CardCourse 
+            title="Robotics: Imaginando y Creando Robots"
+            bgImage="public/curso1.svg"/>
+
+            <CardCourse 
+            title="Coders: Fabricando con Código"
+            bgImage="public/Curso_Coders.svg"/>
+
+            <CardCourse 
+            title="Gamers: Programando Diversión"
+            bgImage="public/Curso_Gamers.svg"/>
+
+            <CardCourse 
+                title="Traders: Aprendiendo de Inversiones"
+                bgImage="public/Curso_Traders.svg"/>
+        </div>
+    </div>
+</section>
