@@ -1,16 +1,23 @@
+---
+import { ChevronRight } from "@mynaui/icons-react";
+---
+
 <header class="flex items-center justify-between pb-8">
     <div class="flex items-center gap-3">
         <img src="../public/LogoCabeza.svg" alt="LogoCabeza">
-        <label class="text-[#061B6E] text-[28px] font-extrabold">GuimarBot</label>
+        <label class="text-[#061B6E] text-[28px] font-extrabold font-sagace"><span class="italic">Guimar</span>Bot</label>
     </div>
 
-    <ul class="flex gap-12 text-[#061B6E] font-medium">
+    <ul class="flex gap-12 text-[#061B6E] font-onest font-medium">
         <li><a href="">Inicio</a></li>
         <li><a href="">Nosotros</a></li>
         <li><a href="">Cursos</a></li>
         <li><a href="">Contacto</a></li>
     </ul>
     
-    <button class="flex items-center gap-2 border-2 border-[#E770E6] rounded-full px-6 py-1 text-[#E770E6] font-medium">Inscribirme ahora<img src="../public/flechaDerecha.svg"></button>
+    <button class="flex items-center border-2 border-[#E770E6] rounded-full pl-6 pr-3 pt-1.5 pb-1 text-[#E770E6] font-onest font-semibold cursor-pointer">
+        Inscribirme ahora
+        <ChevronRight class="w-4 h-4 text-[#E770E6]"/>
+    </button>
 
 </header>
