@@ -6,14 +6,16 @@ import Home from '@/components/Home.astro';
 import About from '@/components/About.astro';
 import Courses from '@/components/Courses.astro';
 import Contact from '@/components/Contact.astro';
+import Footer from '@/components/Footer.astro';
 ---
 
 <Layout>
-	<main class="min-h-screen bg-gradient-to-b from-[#F1F6F0] to-white px-25 py-6">
-		<Header/>
-		<Home/>
-		<About/>
-		<Courses/>
-		<Contact/>
-	</main>
+  <main class="min-h-screen bg-gradient-to-b from-[#F1F6F0] to-white px-60 py-6">
+    <Header />
+    <Home />
+    <About />
+    <Courses />
+    <Contact />
+  </main>
+  <Footer />
 </Layout>
