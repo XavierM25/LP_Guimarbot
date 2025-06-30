@@ -1,27 +1,4 @@
----
-import Toast from './toast/Toast.astro';
----
-
-<Toast
-  title="¡Mensaje enviado!"
-  description="Tu solicitud ha sido enviada con éxito."
-  icon="✅"
-  color="6ef42f"
-/>
-
-<Toast
-  title="¡Muchos mensajes!"
-  description="Por favor, espera un momento."
-  icon="⚠️"
-  color="f4ee2f"
-/>
-
-<Toast
-  title="¡Ha ocurrido un error!"
-  description="Por favor, inténtalo de nuevo."
-  icon="⛔"
-  color="f42f2f"
-/>
+<div id="toast-container" class="fixed top-4 right-4 z-50 space-y-3"></div>
 <section class="flex flex-col justify-between items-center py-40">
   <div class="flex flex-col items-center mb-15">
     <h1 class="font-onest text-[#061B6E] items-center text-[52px] font-extrabold">
@@ -113,7 +90,6 @@ import Toast from './toast/Toast.astro';
         </button>
       </form>
 
-      <!-- Mensaje de estado -->
       <div id="statusMessage" class="mt-4 p-3 rounded-xl hidden"></div>
     </div>
 
@@ -130,6 +106,74 @@ import Toast from './toast/Toast.astro';
 </section>
 
 <script>
+  function mostrarToast(
+    tipo: 'success' | 'warning' | 'error',
+    titulo: string,
+    descripcion: string
+  ) {
+    const toastContainer = document.getElementById('toast-container');
+    if (!toastContainer) return;
+
+    const iconos = {
+      success: '✅',
+      warning: '⚠️',
+      error: '⛔',
+    };
+
+    const colores = {
+      success: '6ef42f',
+      warning: 'f4ee2f',
+      error: 'f42f2f',
+    };
+
+    // Crear el elemento toast
+    const toastHTML = `
+      <figure class="toast-element relative mx-auto w-full max-w-[350px] min-h-fit p-4 cursor-pointer overflow-hidden rounded-2xl bg-white transition-all duration-200 ease-in-out hover:scale-[1.03] shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_2px_4px_rgba(0,0,0,0.05),0_12px_24px_rgba(0,0,0,0.05)] transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:border dark:border-[rgba(255,255,255,0.1)] dark:shadow-[inset_0_-20px_80px_-20px_#ffffff1f] animate-slide-in">
+        <div class="flex flex-row items-center gap-3">
+          <div class="flex size-10 items-center justify-center rounded-2xl">
+            <span class="text-lg">${iconos[tipo]}</span>
+          </div>
+          <div class="flex flex-col overflow-hidden">
+            <div class="flex w-full items-center text-lg font-medium text-black">
+              <span class="text-sm sm:text-lg font-onest">${titulo}</span>
+              <img
+                src="https://raw.githubusercontent.com/XavierM25/ResourceImageGuimarBot/refs/heads/main/HeadGuimar.svg"
+                class="h-5.5 w-auto px-4"
+              />
+            </div>
+            <p class="text-sm text-black/60 font-onest font-light">${descripcion}</p>
+          </div>
+        </div>
+      </figure>
+    `;
+
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = toastHTML;
+    const toastElement = tempDiv.firstElementChild as HTMLElement;
+
+    toastContainer.appendChild(toastElement);
+
+    toastElement.addEventListener('click', () => {
+      cerrarToast(toastElement);
+    });
+
+    setTimeout(() => {
+      cerrarToast(toastElement);
+    }, 5000);
+  }
+
+  function cerrarToast(toastElement: HTMLElement) {
+    if (toastElement && toastElement.parentNode) {
+      toastElement.style.opacity = '0';
+      toastElement.style.transform = 'translateX(100%)';
+      setTimeout(() => {
+        if (toastElement.parentNode) {
+          toastElement.parentNode.removeChild(toastElement);
+        }
+      }, 300);
+    }
+  }
+
   async function enviarFormularioContacto(datosFormulario: any) {
     const API_URL = '/api/contact';
 
@@ -237,7 +281,7 @@ import Toast from './toast/Toast.astro';
 
     const validacion = validarFormulario(datosParaAPI);
     if (!validacion.esValido) {
-      mostrarMensaje(validacion.mensaje!, 'error');
+      mostrarToast('error', '¡Error de validación!', validacion.mensaje!);
       return;
     }
 
@@ -256,10 +300,7 @@ import Toast from './toast/Toast.astro';
       const resultado = await enviarFormularioContacto(datosParaAPI);
 
       if (resultado.success) {
-        mostrarMensaje(
-          '¡Mensaje enviado exitosamente! Nos pondremos en contacto contigo pronto.',
-          'success'
-        );
+        mostrarToast('success', '¡Mensaje enviado!', 'Tu solicitud ha sido enviada con éxito.');
         form.reset();
 
         if (typeof (window as any).gtag !== 'undefined') {
@@ -269,13 +310,31 @@ import Toast from './toast/Toast.astro';
           });
         }
       } else {
-        mostrarMensaje(resultado.message || 'Error al enviar el mensaje', 'error');
+        if (
+          resultado.message &&
+          (resultado.message.includes('RATE_LIMIT_EXCEEDED') ||
+            resultado.message.toLowerCase().includes('demasiadas peticiones') ||
+            resultado.message.toLowerCase().includes('rate limit'))
+        ) {
+          mostrarToast(
+            'warning',
+            '¡Muchos mensajes!',
+            'Por favor, espera un momento antes de enviar otro mensaje.'
+          );
+        } else {
+          mostrarToast(
+            'error',
+            '¡Ha ocurrido un error!',
+            resultado.message || 'Por favor, inténtalo de nuevo.'
+          );
+        }
       }
     } catch (error: any) {
       console.error('Error al enviar formulario:', error);
-      mostrarMensaje(
-        'Error de conexión. Por favor, verifica tu internet e inténtalo de nuevo.',
-        'error'
+      mostrarToast(
+        'error',
+        '¡Error de conexión!',
+        'Por favor, verifica tu internet e inténtalo de nuevo.'
       );
     } finally {
       if (submitBtn) {
@@ -318,5 +377,28 @@ import Toast from './toast/Toast.astro';
         });
       });
     }
+
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slide-in {
+        from {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      
+      .animate-slide-in {
+        animation: slide-in 0.4s ease-out;
+      }
+      
+      .toast-element {
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+      }
+    `;
+    document.head.appendChild(style);
   });
 </script>

@@ -1,4 +1,3 @@
-// Rate limiting simple para el endpoint de contacto
 const requestTracker = new Map();
 const RATE_LIMIT = 5; // máximo 5 peticiones
 const TIME_WINDOW = 15 * 60 * 1000; // en 15 minutos
@@ -17,7 +16,7 @@ export function rateLimitMiddleware(request: Request): { allowed: boolean; messa
     if (recentRequests.length >= RATE_LIMIT) {
         return {
             allowed: false,
-            message: 'Demasiadas peticiones. Por favor espera antes de intentar de nuevo.'
+            message: 'RATE_LIMIT_EXCEEDED: Demasiadas peticiones. Por favor espera antes de intentar de nuevo.'
         };
     }
 

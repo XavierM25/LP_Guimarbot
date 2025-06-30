@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { rateLimitMiddleware } from '../../utils/rateLimiter';
+import { rateLimitMiddleware } from '@/utils/rateLimiter';
 
 export const POST: APIRoute = async ({ request }) => {
     try {
