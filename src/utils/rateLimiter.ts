@@ -1,6 +1,6 @@
 const requestTracker = new Map();
-const RATE_LIMIT = 5; // máximo 5 peticiones
-const TIME_WINDOW = 15 * 60 * 1000; // en 15 minutos
+const RATE_LIMIT = 5;
+const TIME_WINDOW = 15 * 60 * 1000;
 
 export function rateLimitMiddleware(request: Request): { allowed: boolean; message?: string } {
     const ip = request.headers.get('x-forwarded-for') ||
@@ -10,7 +10,6 @@ export function rateLimitMiddleware(request: Request): { allowed: boolean; messa
     const now = Date.now();
     const userRequests = requestTracker.get(ip) || [];
 
-    // Limpiar peticiones antiguas
     const recentRequests = userRequests.filter((time: number) => now - time < TIME_WINDOW);
 
     if (recentRequests.length >= RATE_LIMIT) {
@@ -20,12 +19,10 @@ export function rateLimitMiddleware(request: Request): { allowed: boolean; messa
         };
     }
 
-    // Agregar la petición actual
     recentRequests.push(now);
     requestTracker.set(ip, recentRequests);
 
-    // Limpiar entradas antiguas periódicamente
-    if (Math.random() < 0.1) { // 10% de probabilidad
+    if (Math.random() < 0.1) {
         for (const [key, requests] of requestTracker.entries()) {
             const validRequests = requests.filter((time: number) => now - time < TIME_WINDOW);
             if (validRequests.length === 0) {
