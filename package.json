@@ -16,7 +16,6 @@
     "@astrojs/react": "^4.3.0",
     "@astrojs/vercel": "^8.2.1",
     "@midudev/tailwind-animations": "^0.2.0",
-    "@mynaui/icons-react": "^0.3.9",
     "@pheralb/toast": "^1.0.0",
     "@tailwindcss/vite": "^4.1.10",
     "@types/react": "^19.1.8",
