@@ -4,14 +4,18 @@ const { title, bgImage } = Astro.props;
 
 <article>
   <div
-    class="flex flex-col justify-between w-full h-[220px] bg-cover bg-center rounded-3xl px-8 py-5 mr-3 mb-5"
+    class="flex flex-col justify-between items-center w-full lg:h-[220px] h-[150px] bg-cover bg-center lg:rounded-3xl rounded-2xl px-8 py-5 mr-3 mb-5"
     style={`background-image: url('${bgImage}')`}
   >
-    <div class="flex items-start justify-between">
-      <h1 class="font-onest text-white font-medium text-[19px] leading-tight w-[55%]">{title}</h1>
+    <div class="flex items-start justify-between w-full">
+      <h1
+        class="font-onest text-white font-medium lg:text-[19px] md:text-[16px] text-[14px] leading-tight w-[55%]"
+      >
+        {title}
+      </h1>
       <div>
         <label
-          class="flex justify-center items-center gap-2 bg-[rgba(20,20,20,0.5)] font-onest text-[15px] text-[#D9E53D] rounded-full px-7 py-1.5 font-bold"
+          class="flex justify-center items-center gap-2 bg-[rgba(20,20,20,0.5)] font-onest lg:text-[15px] md:text-[13px] text-[12px] text-[#D9E53D] rounded-full lg:px-7 md:px-5 px-4 py-1.5 font-bold"
         >
           <img class="w-5 h-auto" src="/images/HeadGuimar.svg" />
           GuimarBot

@@ -1,8 +1,8 @@
 ---
-import { ChevronRight } from '@mynaui/icons-react';
+import { ChevronRight, Menu } from '@mynaui/icons-react';
 ---
 
-<header class="flex items-center justify-between mb-12">
+<header class="flex items-center justify-between mb-12 relative">
   <div class="flex items-center gap-3">
     <a href="" class="hover:animate-rotational-wave"
       ><img src="/images/HeadGuimar.svg" class="w-auto h-9" alt="LogoCabeza" /></a
@@ -12,16 +12,136 @@ import { ChevronRight } from '@mynaui/icons-react';
     >
   </div>
 
-  <ul class="flex gap-12 text-[#061B6E] font-onest font-medium text-lg">
+  <!-- Menú de navegación para desktop -->
+  <ul class="hidden lg:flex gap-12 text-[#061B6E] font-onest font-medium text-lg">
     <li><a href="" class="hover:text-[#E770E6] transition-all duration-300">Nosotros</a></li>
     <li><a href="" class="hover:text-[#E770E6] transition-all duration-300">Cursos</a></li>
     <li><a href="" class="hover:text-[#E770E6] transition-all duration-300">Contacto</a></li>
   </ul>
 
+  <!-- Botón de inscripción para desktop -->
   <button
-    class="flex items-center gap-0.5 border-2 border-[#E770E6] rounded-full px-6 py-1.5 text-[#E770E6] font-onest font-semibold cursor-pointer hover:bg-[#E770E6] hover:text-[#061B6E] transition-all duration-300"
+    class="hidden lg:flex items-center gap-0.5 border-2 border-[#E770E6] rounded-full px-6 py-1.5 text-[#E770E6] font-onest font-semibold cursor-pointer hover:bg-[#E770E6] hover:text-[#061B6E] transition-all duration-300"
   >
     Inscribirme ahora
     <ChevronRight className="w-4 h-4 text-[#E770E6]" strokeWidth={2} />
   </button>
+
+  <!-- Botón hamburguesa para móvil -->
+  <button
+    id="menu-toggle"
+    class="lg:hidden flex items-center justify-center w-10 h-10 text-[#061B6E] hover:text-[#E770E6] transition-all duration-300"
+    aria-label="Abrir menú"
+  >
+    <Menu className="w-6 h-6" strokeWidth={2} />
+  </button>
+
+  <!-- Menú móvil -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
+  >
+    <div class="flex flex-col h-full">
+      <!-- Header del menú móvil -->
+      <div class="flex items-center justify-between p-6 border-b border-gray-200">
+        <div class="flex items-center gap-3">
+          <a href="" class="hover:animate-rotational-wave"
+            ><img src="/images/HeadGuimar.svg" class="w-auto h-9" alt="LogoCabeza" /></a
+          >
+          <label class="text-[#061B6E] text-[28px] font-extrabold font-sagace"
+            ><span>Guimar</span>Bot</label
+          >
+        </div>
+        <button
+          id="close-menu"
+          class="flex items-center justify-center w-10 h-10 text-[#061B6E] hover:text-[#E770E6] transition-all duration-300"
+          aria-label="Cerrar menú"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navegación móvil -->
+      <nav class="flex-1 flex flex-col justify-center items-center">
+        <ul class="flex flex-col gap-8 text-center">
+          <li>
+            <a
+              href=""
+              class="text-[#061B6E] font-onest font-medium text-2xl hover:text-[#E770E6] transition-all duration-300"
+              >Nosotros</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              class="text-[#061B6E] font-onest font-medium text-2xl hover:text-[#E770E6] transition-all duration-300"
+              >Cursos</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              class="text-[#061B6E] font-onest font-medium text-2xl hover:text-[#E770E6] transition-all duration-300"
+              >Contacto</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Botón de inscripción móvil -->
+      <div class="p-6 border-t border-gray-200">
+        <button
+          class="w-full flex items-center justify-center gap-0.5 border-2 border-[#E770E6] rounded-full px-6 py-3 text-[#E770E6] font-onest font-semibold cursor-pointer hover:bg-[#E770E6] hover:text-[#061B6E] transition-all duration-300"
+        >
+          Inscribirme ahora
+          <ChevronRight className="w-4 h-4 text-[#E770E6]" strokeWidth={2} />
+        </button>
+      </div>
+    </div>
+  </div>
 </header>
+
+<script>
+  // Funcionalidad del menú móvil
+  const menuToggle = document.getElementById('menu-toggle');
+  const closeMenu = document.getElementById('close-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function openMenu() {
+    if (mobileMenu) {
+      mobileMenu.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeMenuFunc() {
+    if (mobileMenu) {
+      mobileMenu.classList.add('translate-x-full');
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  menuToggle?.addEventListener('click', openMenu);
+  closeMenu?.addEventListener('click', closeMenuFunc);
+
+  // Cerrar menú al hacer clic en un enlace
+  if (mobileMenu) {
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks?.forEach((link) => {
+      link.addEventListener('click', closeMenuFunc);
+    });
+  }
+
+  // Cerrar menú al presionar Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMenuFunc();
+    }
+  });
+</script>
