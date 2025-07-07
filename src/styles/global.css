@@ -94,3 +94,7 @@
 .font-sagace {
   font-family: 'TRIALSagace', sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}

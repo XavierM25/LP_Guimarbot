@@ -1,22 +1,88 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Academia GuímarBot: Educación tecnológica para niños y jóvenes en Perú</title>
+    <meta
+      name="description"
+      content="GuímarBot es una academia peruana que ofrece cursos de tecnología, programación, robótica y finanzas para niños y adolescentes (7-17 años). Clases 100% en línea, aprendizaje práctico y proyectos finales. ¡Despierta la pasión por la tecnología!"
+    />
+    <meta
+      name="keywords"
+      content="GuímarBot, academia, tecnología, programación, robótica, cursos para niños, cursos para adolescentes, educación tecnológica, Perú, clases online, verano, Kids, Teens, Scratch, Python, videojuegos, impresión 3D, finanzas, MetaTrader, Lima"
+    />
+    <meta name="author" content="GuímarBot SAC, Ing. Jorge L. Córdova López" />
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Academia GuímarBot: Educación tecnológica para niños y jóvenes en Perú"
+    />
+    <meta
+      property="og:description"
+      content="Cursos online de programación, robótica, videojuegos y finanzas para niños y adolescentes. Aprende tecnología desde casa con GuímarBot."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:site_name" content="GuímarBot" />
+    <meta property="og:url" content="https://guimarbot.pe" />
+    <meta property="og:image" content="/og-image.png" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Academia GuímarBot: Educación tecnológica para niños y jóvenes en Perú"
+    />
+    <meta
+      name="twitter:description"
+      content="Cursos online de programación, robótica, videojuegos y finanzas para niños y adolescentes. Aprende tecnología desde casa con GuímarBot."
+    />
+    <meta name="twitter:image" content="/og-image.png" />
+    <!-- Datos estructurados JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "GuímarBot",
+        "alternateName": "Academia GuímarBot",
+        "url": "https://guimarbot.pe",
+        "logo": "/favicon.svg",
+        "description": "Academia peruana dedicada a la enseñanza de tecnología, programación, robótica y finanzas para niños y adolescentes (7-17 años). Clases online, proyectos prácticos y enfoque en habilidades del futuro.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lima",
+          "addressCountry": "PE"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Jorge Luis Córdova López"
+        },
+        "foundingDate": "2018",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "info@guimarbot.pe"
+        },
+        "sameAs": [
+          "https://www.facebook.com/guimarbot.peru",
+          "https://www.linkedin.com/company/guimarbot-sac/",
+          "https://www.tiktok.com/@guimarbot.peru"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
