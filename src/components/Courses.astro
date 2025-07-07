@@ -5,49 +5,64 @@ import CardCourse from '@/components/CardCourse.astro';
 ---
 
 <section>
-  <div class="bg-[#8436D8] px-15 py-11 rounded-[45px]">
-    <div class="flex items-center gap-18 mb-7">
-      <h1 class="font-onest text-white text-[56px] font-extrabold w-[30%]">CURSOS 📚</h1>
-      <p class="w-[70%] font-onest text-[#C29BEC] text-[20px] leading-tight">
-        En GuímarBot enseñamos tecnología desde la práctica, con proyectos reales que despiertan la
-        creatividad, el pensamiento lógico y el trabajo en equipo.
-      </p>
+  <div class="flex items-center mb-7 flex-col">
+    <h1 class="font-onest text-[#061B6E] text-[56px] font-extrabold w-[30%]">CURSOS 📚</h1>
+    <p
+      class="w-[52%] font-onest text-[#061B6E] text-[20px] leading-tight opacity-50 font-medium text-center"
+    >
+      En GuímarBot enseñamos tecnología desde la práctica, con proyectos reales que despiertan la
+      creatividad, el pensamiento lógico y el trabajo en equipo.
+    </p>
+  </div>
+  <div class="px-15 py-11 rounded-[45px]">
+    <div class="space-y-3 mb-24">
+      <div class="flex justify-between items-center gap-10">
+        <h2 class="text-[#8436D8] font-black text-[48px] font-onest w-[90%]">PROGRAMACIÓN 💻</h2>
+        <p class="text-[#141414] opacity-50 leading-tight text-[16px] font-onest font-medium">
+          Explora el fascinante mundo del código y el desarrollo digital. Aprende a programar desde
+          cero, crea videojuegos y páginas web usando herramientas modernas y divertidas adaptadas a
+          niños y adolescentes.
+        </p>
+      </div>
+      <div class="w-full h-[2px] bg-[#E770E6]"></div>
+      <div class="grid grid-cols-3 gap-6 mt-8">
+        <CardCourse title="Coders: Fabricando con Código" bgImage="/images/Curso_Coders.webp" />
+        <CardCourse title="Gamers: Programando Diversión" bgImage="/images/Curso_Gamers.webp" />
+      </div>
     </div>
-
-    <div class="flex items-center gap-8 font-onest mb-12">
-      <button
-        class="flex items-center gap-2 px-6 py-3 rounded-full bg-[#061B6E] text-[20px] text-white cursor-pointer"
-      >
-        <Filter className="w-7 h-7 text-white" strokeWidth={2} />
-        Filtros
-      </button>
-
-      <div class="w-full flex items-center gap-3 font-onest px-4 py-3 rounded-full bg-[#F8FAF7]">
-        <button class="cursor-pointer">
-          <Search className="w-7 h-7 text-[#061B6E]" strokeWidth={2} />
-        </button>
-        <input
-          type="text"
-          placeholder="Buscar algún curso"
-          class="text-[20px] text-[#061B6E] outline-none placeholder-[#7F8AB2]"
+    <div class="space-y-3 mb-24">
+      <div class="flex justify-between items-center gap-10">
+        <h2 class="text-[#8436D8] font-black text-[48px] font-onest w-[90%]">ROBÓTICA Y TEC. 🤖</h2>
+        <p class="text-[#141414] opacity-50 leading-tight text-[16px] font-onest font-medium">
+          Desarrolla habilidades STEAM construyendo, programando y diseñando robots. Ideal para
+          despertar la creatividad, la lógica y el pensamiento computacional con herramientas
+          físicas y digitales.
+        </p>
+      </div>
+      <div class="w-full h-[2px] bg-[#E770E6]"></div>
+      <div class="grid grid-cols-3 gap-6 mt-8">
+        <CardCourse
+          title="Robotics: Imaginando y Creando Robots"
+          bgImage="/images/Curso_Robotics.webp"
         />
       </div>
     </div>
-
-    <div class="grid grid-cols-3 grid-rows-2 gap-6">
-      <CardCourse
-        title="Robotics: Imaginando y Creando Robots"
-        bgImage="/images/Curso_Robotics.webp"
-      />
-
-      <CardCourse title="Coders: Fabricando con Código" bgImage="/images/Curso_Coders.webp" />
-
-      <CardCourse title="Gamers: Programando Diversión" bgImage="/images/Curso_Gamers.webp" />
-
-      <CardCourse
-        title="Traders: Aprendiendo de Inversiones"
-        bgImage="/images/Curso_Traders.webp"
-      />
+    <div class="space-y-3">
+      <div class="flex justify-between items-center gap-10">
+        <h2 class="text-[#8436D8] font-black text-[48px] font-onest w-[90%]">TRADING 💸</h2>
+        <p class="text-[#141414] opacity-50 leading-tight text-[16px] font-onest font-medium">
+          Introducción al mundo de las inversiones, el mercado Forex y las finanzas personales,
+          pensado especialmente para adolescentes que buscan aprender a gestionar su dinero y
+          entender el mercado global.
+        </p>
+      </div>
+      <div class="w-full h-[2px] bg-[#E770E6]"></div>
+      <div class="grid grid-cols-3 gap-6 mt-8">
+        <CardCourse
+          title="Traders: Aprendiendo de Inversiones"
+          bgImage="/images/Curso_Traders.webp"
+        />
+      </div>
     </div>
   </div>
 </section>

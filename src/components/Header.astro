@@ -4,21 +4,23 @@ import { ChevronRight } from '@mynaui/icons-react';
 
 <header class="flex items-center justify-between mb-12">
   <div class="flex items-center gap-3">
-    <img src="/images/HeadGuimar.svg" class="w-auto h-9" alt="LogoCabeza" />
+    <a href="" class="hover:animate-rotational-wave"
+      ><img src="/images/HeadGuimar.svg" class="w-auto h-9" alt="LogoCabeza" /></a
+    >
     <label class="text-[#061B6E] text-[28px] font-extrabold font-sagace"
-      ><span class="italic">Guimar</span>Bot</label
+      ><span>Guimar</span>Bot</label
     >
   </div>
 
   <ul class="flex gap-12 text-[#061B6E] font-onest font-medium text-lg">
-    <li><a href="">Inicio</a></li>
-    <li><a href="">Nosotros</a></li>
-    <li><a href="">Cursos</a></li>
-    <li><a href="">Contacto</a></li>
+    <li><a href="" class="hover:text-[#E770E6] transition-all duration-300">Inicio</a></li>
+    <li><a href="" class="hover:text-[#E770E6] transition-all duration-300">Nosotros</a></li>
+    <li><a href="" class="hover:text-[#E770E6] transition-all duration-300">Cursos</a></li>
+    <li><a href="" class="hover:text-[#E770E6] transition-all duration-300">Contacto</a></li>
   </ul>
 
   <button
-    class="flex items-center gap-0.5 border-2 border-[#E770E6] rounded-full px-6 py-1.5 text-[#E770E6] font-onest font-semibold cursor-pointer"
+    class="flex items-center gap-0.5 border-2 border-[#E770E6] rounded-full px-6 py-1.5 text-[#E770E6] font-onest font-semibold cursor-pointer hover:bg-[#E770E6] hover:text-[#061B6E] transition-all duration-300"
   >
     Inscribirme ahora
     <ChevronRight className="w-4 h-4 text-[#E770E6]" strokeWidth={2} />

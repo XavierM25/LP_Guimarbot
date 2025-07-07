@@ -1,11 +1,10 @@
 ---
-import { InfoCircle } from '@mynaui/icons-react';
 const { title, bgImage } = Astro.props;
 ---
 
 <article>
   <div
-    class="flex flex-col justify-between w-full h-[260px] bg-cover bg-center rounded-3xl px-8 py-5 mr-3 mb-5"
+    class="flex flex-col justify-between w-full h-[220px] bg-cover bg-center rounded-3xl px-8 py-5 mr-3 mb-5"
     style={`background-image: url('${bgImage}')`}
   >
     <div class="flex items-start justify-between">
@@ -18,15 +17,6 @@ const { title, bgImage } = Astro.props;
           GuimarBot
         </label>
       </div>
-    </div>
-
-    <div class="w-full flex">
-      <button
-        class="w-full flex items-center gap-1 justify-center cursor-pointer font-onest bg-[#D9E53D] rounded-xl px-3 py-1.5"
-      >
-        <InfoCircle strokeWidth={2} />
-        <label class="font-bold">Más información</label>
-      </button>
     </div>
   </div>
 </article>
